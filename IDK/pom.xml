@@ -4,11 +4,44 @@
   <artifactId>IDK</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+
+
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.1.RELEASE</version>
+</parent>
+
 <dependencies> 
 	<dependency>
     	<groupId>com.fasterxml.jackson.core</groupId>
     	<artifactId>jackson-databind</artifactId>
-    	<version>2.6.3</version>
 	</dependency>
-</dependencies> 
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+
+<build>
+    <pluginManagement>
+        <plugins>
+        
+        	<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+<!--V https://stackoverflow.com/questions/56050581/cucumber-maven-set-up-with-eclipse-source-option-5-is-no-longer-supported-use V-->
+            <!-- Default java version was 1.5, to change the default version added this plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+</build> 
 </project>
